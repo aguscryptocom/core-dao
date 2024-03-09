@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/agussaifuddin/logo/main/token/agus200x200.png">
+    <title>Agus Crypto</title>
+    <meta name="description"
+        content="AGUS is a crypto token project with two main dimensions: as the creator's name and as a concept of personal branding. In this context, the project represents $AGUS's effort to leverage blockchain and crypto technology to build a stronger digital reputation and self-recognition.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+
+        async function detectAndSwitchNetwork() {
+            if (typeof window.ethereum !== 'undefined') {
+                const ethereum = window.ethereum;
+
+                try {
+
+                    const chainId = await ethereum.request({ method: 'eth_chainId' });
+
+                    if (chainId !== '0x45c') {
+
+                        await ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x45c' }] });
+                    }
+                } catch (error) {
+                    console.error('Tidak dapat mengganti jaringan:', error);
+                }
+            } else {
+                console.log('Web3 tidak terdeteksi. Pastikan MetaMask atau penyedia Web3 lainnya terinstal.');
+            }
+        }
+
+        window.addEventListener('load', detectAndSwitchNetwork);
+
+        await window.ethereum.request({
+            "method": "wallet_watchAsset",
+            "params": {
+                "type": "ERC20",
+                "options": {
+                    "address": "0x01065D48363713fA32C6cA51387E0803023C872c",
+                    "symbol": "AGUS",
+                    "decimals": 18,
+                    "image": "https://raw.githubusercontent.com/aguscryptocom/images/main/token/agus200x200.png",
+                    "tokenId": "1116"
+                }
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="welcome" class="welcome">
+        <h1>WELCOME TO AGUS</h1>
+    </div>
+    <div id="content" class="content">
+        <header>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/agussaifuddin/logo/main/token/agus100x100.png" width="100"
+                    height="100" alt="Token Logo">
+                <h1>Agus Crypto</h1>
+                <p>Uniting Identity and Branding.</p>
+            </div>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="https://aguscrypto.com/about/">About</a></li>
+                        <li><a href="https://aguscrypto.com/blog/">Blog</a></li>
+                        <li><a href="https://aguscrypto.com/token/">Token</a></li>
+                        <li><a
+                                href="https://app.aguscrypto.com/core/#/swap?outputCurrency=0x01065D48363713fA32C6cA51387E0803023C872c">Trade</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="countdown-box">
+
+                <center>
+                    <h2>🚀 AGUS TokenSale is Underway! Don't Miss the Opportunity to Buy at a Discounted Price!🚀</h2>
+                </center>
+                <div class="countdown" id="countdown"></div>
+                <center><button id="connectWallet">Connect Wallet</button></center>
+                <center>
+                    <P>~</P>
+                    <p>
+                        <font color="red">Please Connect Wallet and switch network to Core DAO (CORE)</font>
+                    </p>
+                </center>
+
+            </div>
+            <section>
+                <h2>HOW TO BUY?</h2>
+                <p>1. Copy url https://aguscrypto.online and access via Metamask/TrustWallet/AVEai dapp browser.
+                    <br /><br />
+                    2. Click connect Wallet button on this web and select/change chain network on your wallet to Core
+                    DAO
+                    (CORE).
+                    <br /><br />
+                    3. Need help? join our telegram group <a href="https://t.me/agustoken">@AgusToken</a>
+                </p>
+            </section>
+            <section>
+                <h2>When Token Distributed?</h2>
+                <p>- You will immediately receive token you purchased, check your wallet after purchasing, make sure you
+                    have added AGUS contract address to you wallet.
+                    <br /><br />
+                    - We will add CORE raised from tokensale to liquidity within 24 hours.
+                </p>
+            </section>
+            <section id="connectedWallet" style="display: none;">
+                <section>
+                    <h2><i class="fas fa-wallet"></i> Wallet Connected</h2>
+                    <p><b>You CORE Balance:</b> <span id="coreBalance"></span> CORE</p>
+                    <p><b>You AGUS Balance:</b> <span id="tokenBalance"></span> AGUS</p>
+                    <p><b>You Wallet:</b> <span id="walletAddress"></span></p>
+                </section>
+                <section>
+                    <h2><i class="fas fa-rocket"></i> TokenSale Information</h2>
+                    <p><b>Sale Rate:</b> <span id="presaleRate"></span> AGUS/CORE</p>
+                    <p><b>Exchange Rate:</b> <span>0.1~0.9</span> AGUS/CORE</p>
+                    <p><b>Min-Buy:</b> <span>1</span> CORE</p>
+                    <p><b>Max-Buy:</b> <span id="maxPurchase"></span> CORE/Wallet</p>
+                    <p><b>Soft Cap:</b> <span>1000</span> CORE</p>
+                    <p><b>Hard Cap:</b> <span>10000</span> CORE</p>
+                    <p><b>Funds Raised:</b> <span id="weiRaised"></span> CORE</p>
+                    <p><b>Funds Allocation:</b> <span>70%</span> for Liquidity</p>
+                    <p><b>Funds Allocation:</b> <span>20%</span> for Buyback</p>
+                    <p><b>Funds Allocation:</b> <span>10%</span> for Development</p>
+                </section>
+                <section>
+                    <h2><i class="fas fa-shopping-cart"></i> AGUS Purchase</h2>
+                    <form id="buyTokensForm">
+                        <label for="buyAmount">CORE Amount to Buy:</label>
+                        <input type="number" id="buyAmount" step="any" required style="width: 80%;" min="1">
+                        <button type="submit">BUY AGUS</button>
+                    </form>
+                    <div id="operationResult" style="display: none;">
+                        <p id="operationMessage"></p>
+                    </div>
+                </section>
+            </section>
+        </main>
+        <footer>
+            <nav>
+                <ul class="footer-menu">
+                    <li><a href="https://x.com/aguscryptocom"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://t.me/aguscryptocom"><i class="fab fa-telegram"></i></a></li>
+                    <li><a href="https://fb.com/aguscryptocom"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="mailto:agus@aguscrypto.com"><i class="fas fa-envelope"></i></a></li>
+                    <li><a href="https://github.com/aguscryptocom"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </nav>
+        </footer>
+        <script src="./js/web3.js"></script>
+        <script type="module" src="./js/app.js"></script>
+        <script src="./js/countdown.js"></script>
+    </div>
+    <script>
+        setTimeout(function () {
+            var welcomeDiv = document.getElementById("welcome");
+            var contentDiv = document.getElementById("content");
+
+            welcomeDiv.style.display = "none";
+            contentDiv.style.display = "block";
+        }, 1000);
+    </script>
+</body>
+
+</html>
